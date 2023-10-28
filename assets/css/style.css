@@ -50,3 +50,13 @@ button:hover {
   font-size: 50px !important;
   padding: 10px 20px !important;
 }
+
+.correct {
+  background-color: rgb(31, 245, 3);
+  color: black !important;
+}
+
+.wrong {
+  background-color: red;
+  color: black !important;
+}

@@ -1,22 +1,53 @@
 const startButton = document.getElementById('startButton');
 const questionElement = document.getElementById('question');
-const answerButtons = document.getElementById('answer-btn');
+const answerButtons = document.getElementsByClassName('answer-btn');
 
 let currentQuestionIndex = 0;
 
-startButton.addEventListener('clicl', startQuiz);
+startButton.addEventListener('click', startQuiz);
 
 function startQuiz() {
-  Element.classList.add('hide');
+  startButton.classList.add('hide');
   setNextQuestion();
 }
 
 function setNextQuestion() {
+  resetState();
   showQuestion(questions[currentQuestionIndex]);
-  // add resetState here
 }
 
+function showQuestion(question) {
+  questionElement.innerText = question.question;
+  for (let i = 0; i < question.answers.length; i++) {
+    answerButtons[i].innerText = question.answers[i].text;
+    answerButtons[i].addEventListener('click', function() {
+      selectAnswer(question.answers[i]);
+    });
+  }
+}
 
+function resetState() {
+  for (let i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].style.display = 'block';
+    answerButtons[i].disabled = false;
+    answerButtons[i].classList.remove('correct', 'wrong');
+  }
+}
+
+function selectAnswer(answer) {
+  if (answer.correct) {
+    this.classList.add('correct');
+  } else {
+    this.classList.add('wrong');
+  }
+
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    setNextQuestion();
+  } else {
+    alert('Finished!');
+  }
+}
 
 
 
