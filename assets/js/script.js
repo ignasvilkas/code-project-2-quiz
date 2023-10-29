@@ -1,63 +1,3 @@
-const startButton = document.getElementById('startButton');
-const questionElement = document.getElementById('question');
-const answerButtons = document.getElementsByClassName('answer-btn');
-
-let currentQuestionIndex = 0;
-
-startButton.addEventListener('click', startQuiz);
-
-function startQuiz() {
-  startButton.classList.add('hide');
-  setNextQuestion();
-}
-
-function setNextQuestion() {
-  resetState();
-  showQuestion(questions[currentQuestionIndex]);
-}
-
-function showQuestion(question) {
-  questionElement.innerText = question.question;
-  question.answers.forEach((answer, index) => {
-    answerButtons[index].innerText = answer.text;
-    answerButtons[index].addEventListener('click', () => selectAnswer(answer));
-  });
-}
-
-function resetState() {
-  for (let i = 0; i < answerButtons.length; i++) {
-    answerButtons[i].style.display = 'block';
-    answerButtons[i].disabled = false;
-    answerButtons[i].classList.remove('correct', 'wrong');
-  }
-}
-
-function selectAnswer(answer) {
-  if (answer.correct) {
-    answerButtons[currentQuestionIndex].classList.add('correct');
-  } else {
-    answerButtons[currentQuestionIndex].classList.add('wrong');
-  }
-
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    setNextQuestion();
-  } else {
-    alert('Quiz finished!');
-  }
-
-
-
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    setNextQuestion();
-  } else {
-    alert('Finished!');
-  }
-}
-
-
-
 const questions = [
   {
    question: 'What is the smallest country in the world?',
@@ -150,3 +90,73 @@ const questions = [
    ]
   } 
 ]
+
+
+const questionElement = document.getElementById('question');
+const answerButtons = document.querySelectorAll('.answer-btn');
+const startButton = document.getElementById('startButton');
+const nextButton = document.getElementById('nextButton');
+let currentQuestionIndex = 0;
+
+startButton.addEventListener('click', startQuiz);
+nextButton.addEventListener('click', () => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion(questions[currentQuestionIndex]);
+  } else {
+    showResults();
+  }
+});
+
+function startQuiz() {
+  startButton.classList.add('hide');
+  currentQuestionIndex = 0;
+  showQuestion(questions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question;
+  nextButton.classList.add('hide');
+  answerButtons.forEach((button, index) => {
+    button.innerText = question.answers[index].text;
+    button.classList.remove('correct', 'wrong', 'selected');
+    button.addEventListener('click', () => checkAnswer(index, question));
+  });
+  // Show answer buttons
+  answerButtons.forEach(button => {
+    button.style.display = 'block';
+  });
+}
+
+
+function checkAnswer(selectedIndex, question) {
+  const currentQuestion = question;
+  answerButtons.forEach((button, index) => {
+    if (currentQuestion.answers[index].correct) {
+      button.classList.add('correct');
+    } else {
+      button.classList.add('wrong');
+    }
+  });
+  // Change the correct answer to green
+  answerButtons.forEach((button, index) => {
+    if (currentQuestion.answers[index].correct) {
+      button.classList.remove('wrong');
+      button.classList.add('correct');
+    }
+  });
+  // Mark the selected answer
+  answerButtons[selectedIndex].classList.add('selected');
+  nextButton.classList.remove('hide');
+}
+
+
+function showResults() {
+  questionElement.innerText = 'Quiz Completed';
+  answerButtons.forEach((button) => {
+    button.classList.add('hide');
+  });
+  nextButton.innerText = 'Restart Quiz';
+  nextButton.classList.remove('hide');
+  nextButton.addEventListener('click', startQuiz);
+}
