@@ -73,8 +73,8 @@ This a a quiz page made for Code Institute Milestone Project 2. It is designed t
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/)
+-   [W3C Markup Validator](https://validator.w3.org/#validate_by_input) - [Results](assets/img/W3%20HTML%20validator.png)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/img/W3C%20CSS%20validator.png)
 
 ### Testing User Stories from User Experience (UX) Section
 
