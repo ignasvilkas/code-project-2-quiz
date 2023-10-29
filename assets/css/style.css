@@ -56,10 +56,16 @@ button:hover {
   justify-content: center;
 } 
 
-#startButton,
 #nextButton {
   margin-top: 150px;
   padding: 20px 100px;
+}
+
+#startButton {
+  margin-top: 150px;
+  padding: 50px 200px;
+  font-size: 50px;
+  border: 5px solid rgb(238, 212, 63);
 }
 
 .correct {
