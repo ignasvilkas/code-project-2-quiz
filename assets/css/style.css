@@ -14,11 +14,6 @@ body {
   border: 1px solid rgb(80, 80, 180);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-
-}
-
-.hide {
-  display: none;
 }
 
 h1,
@@ -27,7 +22,7 @@ h4 {
 }
 
 h1 {
-  font-size: 70px !important;
+  font-size: 50px !important;
 }
 
 button {
@@ -36,7 +31,14 @@ button {
   padding: 10px 30px;
   border: 1px solid rgb(238, 212, 63);
   border-radius: 10px !important; 
-  }
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 button:hover {
   background-color: rgb(13, 13, 88);
@@ -44,8 +46,11 @@ button:hover {
 
 .answer-btn {
   margin: 15px;
-  padding: 20px 100px;
-  display: none;
+  width: 250px;
+  height: 60px;
+  display: flex;
+  align-tracks: center;
+  justify-content: center;
 } 
 
 #startButton,
@@ -66,4 +71,8 @@ button:hover {
 
 .selected {
   border: 3px solid rgb(238, 212, 63);
+}
+
+.hide {
+  display: none;
 }
