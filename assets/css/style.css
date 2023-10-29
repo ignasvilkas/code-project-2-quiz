@@ -57,7 +57,47 @@ button:hover {
   display: flex;
   align-tracks: center;
   justify-content: center;
+  font-size: 15px;
 } 
+
+#nextButton {
+  margin-top: 150px !important;
+  padding: 20px 100px !important;
+}
+
+@media (min-width: 992px) {
+  .answer-btn {
+    width: 200px !important;
+    height: 60px !important;
+    font-size: 15px !important;
+  }
+
+  #nextButton {
+    font-size: 50px !important;
+    padding: 30px 150px !important;
+    margin-top: 20px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  
+  .answer-btn {
+    width: 350px !important;
+    height: 70px !important;
+    font-size: 25px !important;
+  }
+
+  #question {
+    font-size: 55px !important;
+  }
+
+  #nextButton {
+    font-size: 50px !important;
+    padding: 30px 150px !important;
+    margin-top: 20px !important;
+  }
+}
+ 
 
 @media (max-width: 768px) {
   .answer-container {
@@ -87,11 +127,6 @@ button:hover {
 
 .answer-btn.no-hover.wrong:hover {
   background-color: red;
-}
-
-#nextButton {
-  margin-top: 150px;
-  padding: 20px 100px;
 }
 
 #startButton {
