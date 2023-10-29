@@ -1,63 +1,3 @@
-const startButton = document.getElementById('startButton');
-const questionElement = document.getElementById('question');
-const answerButtons = document.getElementsByClassName('answer-btn');
-
-let currentQuestionIndex = 0;
-
-startButton.addEventListener('click', startQuiz);
-
-function startQuiz() {
-  startButton.classList.add('hide');
-  setNextQuestion();
-}
-
-function setNextQuestion() {
-  resetState();
-  showQuestion(questions[currentQuestionIndex]);
-}
-
-function showQuestion(question) {
-  questionElement.innerText = question.question;
-  question.answers.forEach((answer, index) => {
-    answerButtons[index].innerText = answer.text;
-    answerButtons[index].addEventListener('click', () => selectAnswer(answer));
-  });
-}
-
-function resetState() {
-  for (let i = 0; i < answerButtons.length; i++) {
-    answerButtons[i].style.display = 'block';
-    answerButtons[i].disabled = false;
-    answerButtons[i].classList.remove('correct', 'wrong');
-  }
-}
-
-function selectAnswer(answer) {
-  if (answer.correct) {
-    answerButtons[currentQuestionIndex].classList.add('correct');
-  } else {
-    answerButtons[currentQuestionIndex].classList.add('wrong');
-  }
-
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    setNextQuestion();
-  } else {
-    alert('Quiz finished!');
-  }
-
-
-
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    setNextQuestion();
-  } else {
-    alert('Finished!');
-  }
-}
-
-
-
 const questions = [
   {
    question: 'What is the smallest country in the world?',
@@ -150,3 +90,91 @@ const questions = [
    ]
   } 
 ]
+
+const questionElement = document.getElementById('question');
+const answerButtons = document.querySelectorAll('.answer-btn');
+const startButton = document.getElementById('startButton');
+const nextButton = document.getElementById('nextButton');
+let currentQuestionIndex = 0;
+let score = 0; // To track the score
+
+answerButtons.forEach((button, index) => {
+  button.addEventListener('click', () => handleAnswerClick(index));
+});
+
+startButton.addEventListener('click', startQuiz);
+nextButton.addEventListener('click', goToNextQuestion);
+
+function handleAnswerClick(selectedIndex) {
+  checkAnswer(selectedIndex, questions[currentQuestionIndex]);
+}
+
+function startQuiz() {
+  score = 0; // Reset the score when the quiz starts
+  startButton.classList.add('hide');
+  currentQuestionIndex = 0;
+  showQuestion(questions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question;
+  nextButton.classList.add('hide');
+  
+  answerButtons.forEach((button, index) => {
+    button.innerText = question.answers[index].text;
+    button.classList.remove('correct', 'wrong', 'selected');
+  });
+
+  answerButtons.forEach(button => {
+    button.style.display = 'block';
+  });
+}
+
+function checkAnswer(selectedIndex, question) {
+  if (question.answers[selectedIndex].correct) {
+    score++; // Increase score if selected answer is correct
+  }
+
+  answerButtons.forEach((button, index) => {
+    if (question.answers[index].correct) {
+      button.classList.add('correct');
+    } else {
+      button.classList.add('wrong');
+    }
+  });
+  
+  answerButtons[selectedIndex].classList.add('selected');
+  nextButton.classList.remove('hide');
+}
+
+function goToNextQuestion() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion(questions[currentQuestionIndex]);
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  questionElement.innerText = `Quiz Completed! You scored ${score}/10`;
+  answerButtons.forEach((button) => {
+    button.classList.add('hide');
+  });
+  nextButton.innerText = 'Home';
+  nextButton.removeEventListener('click', goToNextQuestion);
+  nextButton.addEventListener('click', homePage);
+}
+
+function homePage() {
+  questionElement.innerText = "General Knowledge Quiz";
+  startButton.classList.remove('hide');
+  nextButton.classList.add('hide');
+  nextButton.innerText = 'Next Question'; // Reset the nextButton text
+  nextButton.removeEventListener('click', homePage);
+  nextButton.addEventListener('click', goToNextQuestion);
+  score = 0; // Reset score
+  currentQuestionIndex = 0; // Reset question index
+}
+
+
