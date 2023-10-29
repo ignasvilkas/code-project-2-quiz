@@ -107,6 +107,10 @@ nextButton.addEventListener('click', goToNextQuestion);
 
 function handleAnswerClick(selectedIndex) {
   checkAnswer(selectedIndex, questions[currentQuestionIndex]);
+
+  answerButtons.forEach(button => {
+    button.classList.add('no-hover');
+  })
 }
 
 function startQuiz() {
@@ -119,6 +123,10 @@ function startQuiz() {
 function showQuestion(question) {
   questionElement.innerText = question.question;
   nextButton.classList.add('hide');
+
+  answerButtons.forEach(button => {
+    button.classList.remove('no-hover');
+  });
   
   answerButtons.forEach((button, index) => {
     button.innerText = question.answers[index].text;

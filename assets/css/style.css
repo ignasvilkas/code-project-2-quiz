@@ -56,6 +56,14 @@ button:hover {
   justify-content: center;
 } 
 
+.answer-btn.no-hover.correct:hover {
+  background-color: rgb(47, 243, 47);
+}
+
+.answer-btn.no-hover.wrong:hover {
+  background-color: red;
+}
+
 #nextButton {
   margin-top: 150px;
   padding: 20px 100px;
