@@ -90,7 +90,7 @@ const questions = [
        {text: '10', correct: false}
    ]
   } 
-]
+];
 
 // Variables
 const questionElement = document.getElementById('question');
@@ -177,7 +177,7 @@ function goToNextQuestion() {
 function showResults() {
   questionElement.innerText = `Quiz Completed! You scored ${score}/10`;
   answerButtons.forEach((button) => {
-    button.style.display = 'none'
+    button.style.display = 'none';
   });
   nextButton.innerText = 'Home';
   nextButton.removeEventListener('click', goToNextQuestion);
