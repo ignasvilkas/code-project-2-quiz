@@ -13,8 +13,8 @@ This a a quiz page made for Code Institute Milestone Project 2. It is designed t
     -   #### First Time Visitor Goals
 
         1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the site and know how to start the quiz.
-        3. As a First Time Visitor, I want to be able to do the quiz and see result at the end.
+        2. As a First Time Visitor, I want to be able to do the quiz.
+        3. As a First Time Visitor, I want to be able to see my result at the end.
 
     -   #### Returning Visitor Goals
 
@@ -80,11 +80,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 -   #### First Time Visitor Goals
 
-    1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the organisation.
+    1. As a First Time Visitor, I want to easily understand the main purpose of the site.
 
-        1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath there is a Hero Image with Text and a "Learn More" Call to action button.
-        2. The main points are made immediately with the hero image
-        3. The user has two options, click the call to action buttons or scroll down, both of which will lead to the same place, to learn more about the organisation.
+        1. Upon entering the site, users can see straight away that this is a quiz website.
+        2. The user can press 'Start Quiz' button to start the quiz.
+        3. The user can do the quiz by reading out a question and choosing the answer.
+        4. The user will get a result at the end.
 
     2. As a First Time Visitor, I want to be able to easily be able to navigate throughout the site to find content.
 
