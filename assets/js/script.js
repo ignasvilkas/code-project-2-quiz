@@ -1,5 +1,4 @@
 // List of questions with answers
-
 const questions = [
   {
    question: 'What is the smallest country in the world?',
