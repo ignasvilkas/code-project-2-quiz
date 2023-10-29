@@ -63,8 +63,12 @@ button:hover {
   }
 
   #startButton {
-    font-size: 1rem !important;
+    font-size: 30px !important;
     padding: 20px 40px !important;
+  }
+
+  #question {
+    font-size: 40px !important; 
   }
 }
 
