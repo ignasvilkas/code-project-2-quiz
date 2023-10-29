@@ -45,7 +45,7 @@ const questions = [
    ]
   }, 
   {
-   question: 'What is the capital of Texas?',
+   question: 'What is the capital of Texas in the United States?',
    answers: [
        {text: 'San Antonio', correct: false},
        {text: 'Austin', correct: true},
@@ -72,7 +72,7 @@ const questions = [
    ]
   },  
   {
-   question: 'How many teeth does an adult have?',
+   question: 'How many teeth does an adult usually have?',
    answers: [
        {text: '28', correct: false},
        {text: '34', correct: false},
@@ -81,12 +81,12 @@ const questions = [
    ]
   }, 
   {
-   question: 'How many years are there in a century?',
+   question: 'How many different color sets of residential properties are in monopoly?',
    answers: [
-       {text: '50', correct: false},
-       {text: '10', correct: false},
-       {text: '100', correct: true},
-       {text: '1000', correct: false}
+       {text: '6', correct: false},
+       {text: '12', correct: false},
+       {text: '8', correct: true},
+       {text: '10', correct: false}
    ]
   } 
 ]
