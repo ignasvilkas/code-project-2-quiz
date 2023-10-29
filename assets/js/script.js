@@ -1,3 +1,5 @@
+// List of questions with answers
+
 const questions = [
   {
    question: 'What is the smallest country in the world?',
@@ -91,20 +93,24 @@ const questions = [
   } 
 ]
 
+// Variables
 const questionElement = document.getElementById('question');
 const answerButtons = document.querySelectorAll('.answer-btn');
 const startButton = document.getElementById('startButton');
 const nextButton = document.getElementById('nextButton');
+
+// Initial variable values
 let currentQuestionIndex = 0;
 let score = 0;
 
+// Attached click event listeners to buttons
 answerButtons.forEach((button, index) => {
   button.addEventListener('click', () => handleAnswerClick(index));
 });
-
 startButton.addEventListener('click', startQuiz);
 nextButton.addEventListener('click', goToNextQuestion);
 
+// Function to determine what happens when answer button is clicked
 function handleAnswerClick(selectedIndex) {
   checkAnswer(selectedIndex, questions[currentQuestionIndex]);
 
@@ -113,6 +119,7 @@ function handleAnswerClick(selectedIndex) {
   })
 }
 
+// Function to start the quiz
 function startQuiz() {
   score = 0;
   startButton.classList.add('hide');
@@ -120,6 +127,7 @@ function startQuiz() {
   showQuestion(questions[currentQuestionIndex]);
 }
 
+// Function to display question with answers
 function showQuestion(question) {
   questionElement.innerText = question.question;
   nextButton.classList.add('hide');
@@ -138,6 +146,7 @@ function showQuestion(question) {
   });
 }
 
+// Function to check whether the chosen answer is correct or wrong
 function checkAnswer(selectedIndex, question) {
   if (question.answers[selectedIndex].correct) {
     score++;
@@ -155,6 +164,7 @@ function checkAnswer(selectedIndex, question) {
   nextButton.classList.remove('hide');
 }
 
+// Function to go to the next question
 function goToNextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -164,6 +174,7 @@ function goToNextQuestion() {
   }
 }
 
+// Function to show result once quiz is finished
 function showResults() {
   questionElement.innerText = `Quiz Completed! You scored ${score}/10`;
   answerButtons.forEach((button) => {
@@ -174,6 +185,7 @@ function showResults() {
   nextButton.addEventListener('click', homePage);
 }
 
+// Function to reset the quiz and go to home page
 function homePage() {
   questionElement.innerText = "General Knowledge Quiz";
   startButton.classList.remove('hide');
