@@ -27,7 +27,7 @@ h4 {
 }
 
 h1 {
-  font-size: 100px !important;
+  font-size: 70px !important;
 }
 
 button {
@@ -43,10 +43,16 @@ button:hover {
 }
 
 .answer-btn {
-  margin: 10px;
+  margin: 15px;
   padding: 20px 100px;
   display: none;
 } 
+
+#startButton,
+#nextButton {
+  margin-top: 50px;
+  padding: 20px 100px;
+}
 
 .correct {
   background-color: rgb(47, 243, 47);
