@@ -195,5 +195,3 @@ function homePage() {
   score = 0;
   currentQuestionIndex = 0;
 }
-
-
