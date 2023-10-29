@@ -58,7 +58,7 @@ button:hover {
   width: 80%;
   height: 60px;
   display: flex;
-  align-tracks: center;
+  align-content: center;
   justify-content: center;
   font-size: 15px;
 } 
