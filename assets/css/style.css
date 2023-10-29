@@ -1,4 +1,3 @@
-/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -9,7 +8,19 @@ body {
   background: rgb(238, 212, 63) !important;
 }
 
-h1, h4 {
+.box-wrapper {
+  background-color: rgb(41, 41, 121);
+  padding: 13px;
+  border: 1px solid rgb(80, 80, 180);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  height: 600px;
+  width: 1300px;
+  overflow: auto;
+}
+
+h1,
+h4 {
   color: rgb(238, 212, 63) !important;
 }
 
@@ -25,26 +36,6 @@ button {
   border-radius: 10px !important; 
 }
 
-button:hover {
-  background-color: rgb(13, 13, 88);
-}
-
-.hide {
-  display: none;
-}
-
-/* Container and Wrappers */
-.box-wrapper {
-  background-color: rgb(41, 41, 121);
-  padding: 13px;
-  border: 1px solid rgb(80, 80, 180);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-  height: 600px;
-  width: 1300px;
-  overflow: auto;
-}
-
 .answer-container {
   display: flex;
   flex-direction: column;
@@ -52,7 +43,10 @@ button:hover {
   align-items: center;
 }
 
-/* Buttons */
+button:hover {
+  background-color: rgb(13, 13, 88);
+}
+
 .answer-btn {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -64,43 +58,13 @@ button:hover {
   align-tracks: center;
   justify-content: center;
   font-size: 15px;
-}
-
-#startButton {
-  margin-top: 150px;
-  padding: 50px 200px;
-  font-size: 50px;
-  border: 5px solid rgb(238, 212, 63);
-}
+} 
 
 #nextButton {
   margin-top: 150px !important;
   padding: 20px 100px !important;
 }
 
-.answer-btn.no-hover.correct:hover {
-  background-color: rgb(47, 243, 47);
-}
-
-.answer-btn.no-hover.wrong:hover {
-  background-color: red;
-}
-
-.correct {
-  background-color: rgb(47, 243, 47);
-  color: black !important;
-}
-
-.wrong {
-  background-color: red;
-  color: black !important;
-}
-
-.selected {
-  border: 3px solid rgb(238, 212, 63);
-}
-
-/* Media Queries */
 @media (min-width: 992px) {
   .answer-btn {
     width: 300px !important;
@@ -116,6 +80,7 @@ button:hover {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  
   .answer-btn {
     width: 350px !important;
     height: 70px !important;
@@ -132,7 +97,7 @@ button:hover {
     margin-top: 20px !important;
   }
 }
-
+ 
 @media (max-width: 768px) {
   .answer-container {
     padding: 10px;
@@ -153,4 +118,37 @@ button:hover {
   #question {
     font-size: 30px !important; 
   }
+}
+
+.answer-btn.no-hover.correct:hover {
+  background-color: rgb(47, 243, 47);
+}
+
+.answer-btn.no-hover.wrong:hover {
+  background-color: red;
+}
+
+#startButton {
+  margin-top: 150px;
+  padding: 50px 200px;
+  font-size: 50px;
+  border: 5px solid rgb(238, 212, 63);
+}
+
+.correct {
+  background-color: rgb(47, 243, 47);
+  color: black !important;
+}
+
+.wrong {
+  background-color: red;
+  color: black !important;
+}
+
+.selected {
+  border: 3px solid rgb(238, 212, 63);
+}
+
+.hide {
+  display: none;
 }
