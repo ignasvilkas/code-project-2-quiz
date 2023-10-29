@@ -159,7 +159,7 @@ function goToNextQuestion() {
 function showResults() {
   questionElement.innerText = `Quiz Completed! You scored ${score}/10`;
   answerButtons.forEach((button) => {
-    button.classList.add('hide');
+    button.style.display = 'none'
   });
   nextButton.innerText = 'Home';
   nextButton.removeEventListener('click', goToNextQuestion);
