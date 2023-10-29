@@ -18,12 +18,10 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question;
-  for (let i = 0; i < question.answers.length; i++) {
-    answerButtons[i].innerText = question.answers[i].text;
-    answerButtons[i].addEventListener('click', function() {
-      selectAnswer(question.answers[i]);
-    });
-  }
+  question.answers.forEach((answer, index) => {
+    answerButtons[index].innerText = answer.text;
+    answerButtons[index].addEventListener('click', () => selectAnswer(answer));
+  });
 }
 
 function resetState() {
@@ -36,10 +34,19 @@ function resetState() {
 
 function selectAnswer(answer) {
   if (answer.correct) {
-    this.classList.add('correct');
+    answerButtons[currentQuestionIndex].classList.add('correct');
   } else {
-    this.classList.add('wrong');
+    answerButtons[currentQuestionIndex].classList.add('wrong');
   }
+
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    setNextQuestion();
+  } else {
+    alert('Quiz finished!');
+  }
+
+
 
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {

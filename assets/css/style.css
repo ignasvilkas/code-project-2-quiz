@@ -26,6 +26,10 @@ h4 {
   color: rgb(238, 212, 63) !important;
 }
 
+h1 {
+  font-size: 100px !important;
+}
+
 button {
   background-color: rgb(41, 41, 121);
   color: rgb(238, 212, 63) !important;
@@ -40,15 +44,18 @@ button:hover {
 
 .answer-btn {
   margin: 10px;
+  padding: 20px 100px;
 } 
 
-.start-btn {
-  margin-top: 20px !important;
-}
 
-.btn-start-quiz {
+.btn-start-quiz,
+.next-btn {
   font-size: 50px !important;
   padding: 10px 20px !important;
+}
+
+.next-btn {
+  display: none;
 }
 
 .correct {
