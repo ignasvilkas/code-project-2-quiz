@@ -49,12 +49,24 @@ button:hover {
 
 .answer-btn {
   margin: 15px;
+  margin-bottom : 10px
   width: 250px;
   height: 60px;
   display: flex;
   align-tracks: center;
   justify-content: center;
 } 
+
+@media (max-width: 768px) {
+  .answer-container {
+    padding:10px;
+  }
+
+  #startButton {
+    font-size: 1rem !important;
+    padding: 20px 40px !important;
+  }
+}
 
 .answer-btn.no-hover.correct:hover {
   background-color: rgb(47, 243, 47);
